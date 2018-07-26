@@ -5,11 +5,10 @@ project.ext {
 buildscript {
     repositories {
         jcenter()
-        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:2.2.3'
     }
 }
 
@@ -31,11 +30,12 @@ android {
 }
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
-    implementation 'com.android.support:customtabs:23.+'
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.android.support:customtabs:23.+'
 }
 
