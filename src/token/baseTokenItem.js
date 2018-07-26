@@ -1,5 +1,5 @@
 import { extractIdToken } from './token'
-import { Base64 } from 'js-base64'
+import * as base64 from "base-64"
 import Scope from './scope'
 
 const TOKEN_CACHE_KEY_DELIMITER = '$'
@@ -29,29 +29,29 @@ export default class BaseTokenItem {
     }
 
     static createRefreshTokenKey(clientId, userId) {
-        return Base64.encodeURI(clientId) +
+        return base64.encode(clientId) +
             TOKEN_CACHE_KEY_DELIMITER +
-            Base64.encodeURI(userId)
+            base64.encode(userId)
     }
 
     static createAccessTokenKey(clientId, userId, scope) {
-        return Base64.encodeURI(clientId) +
+        return base64.encode(clientId) +
             TOKEN_CACHE_KEY_DELIMITER +
-            Base64.encodeURI(userId) +
+            base64.encode(userId) +
             TOKEN_CACHE_KEY_DELIMITER +
-            Base64.encodeURI(scope.toString())
+            base64.encode(scope.toString())
     }
 
     static createTokenKeyPrefix(clientId, userId) {
-        return Base64.encodeURI(clientId) +
+        return base64.encode(clientId) +
             TOKEN_CACHE_KEY_DELIMITER +
-            Base64.encodeURI(userId)
+            base64.encode(userId)
     }
 
     static scopeFromKey(key) {
         const keyParts = key.split(TOKEN_CACHE_KEY_DELIMITER)
         if (keyParts[2]) {
-            const scopeStr = Base64.decode(keyParts[2])
+            const scopeStr = base64.decode(keyParts[2])
             return new Scope(scopeStr)
         }
         return null

@@ -1,8 +1,8 @@
-import { Base64 } from 'js-base64'
+import * as base64 from "base-64"
 import log from '../utils/logger'
 
 function base64DecodeStringUrlSafe(base64IdToken) {
-    return decodeURIComponent(Base64.decode(base64IdToken))
+    return decodeURIComponent(base64.decode(base64IdToken))
 }
 
 function isEmptyString(str) {

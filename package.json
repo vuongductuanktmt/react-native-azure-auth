@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "babel-plugin-transform-builtin-extend": "^1.1.2",
-    "js-base64": "github:vmurin/js-base64",
+    "base-64": "^0.1.0",
     "url": "^0.11.0"
   }
 }
