@@ -158,7 +158,7 @@ export default class Auth {
                 } else {
                     // on missing consent Azure also answers with HTTP 400 code
                     // Error: AADSTS65001, response.json.error_codes[0] == 65001
-                    log.error('Could not refresh token: ', response)
+                    // log.error('Could not refresh token: ', response)
                     return Promise.reject(null)
                 }
             })
@@ -189,7 +189,7 @@ export default class Auth {
             }
             let refreshToken = await this.cache.getRefreshToken(input.userId)
             if (refreshToken) {
-                const tokenResponse = await this.refreshTokens(refreshToken, scope)
+                const tokenResponse = await this.refreshTokens({refreshToken, scope})
                 if (tokenResponse && tokenResponse.refreshToken) {
                     this.cache.saveRefreshToken(tokenResponse)
                 }
