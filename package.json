@@ -22,7 +22,7 @@
     "oauth2"
   ],
   "repository": {
-    "url": "https://github.com/vmurin/react-native-azure-auth.git"
+    "url": "https://github.com/vuongductuanktmt/react-native-azure-auth.git"
   },
   "author": "vmurin",
   "license": "MIT",
